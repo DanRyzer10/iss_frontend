@@ -2,25 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,600;0,700;1,800&family=Lora&family=Roboto:wght@300&display=swap');
 
-:root{
-  --background-color: #23272E;
-  --color:#fff;
-  --navbar-color: #161B22;
-  --accent-color: #41b883;
-  --danger-color: #e55353;
-  --warning-color: #e59c3f;
-  --info-color: #4aa9e9;
-}
-
-
 #app {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
-/* <div class="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div> */
+
 
 
 

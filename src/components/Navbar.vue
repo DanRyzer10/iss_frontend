@@ -1,7 +1,7 @@
 <template>
     <nav class="nav-main">
     <img src="@/assets/logo.svg" alt="" width="80">
-    <h2 class="todo-list">Todo list app</h2>
+    <h2 class="todo-list">Account</h2>
   </nav>
 </template>
 
@@ -11,11 +11,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: var(--navbar-color);
+  background-color: #161B22;
   
 }
 .todo-list{
-  color: var(--text-color);
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 500;
 }
