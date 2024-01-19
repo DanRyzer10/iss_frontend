@@ -1,6 +1,6 @@
 import './assets/main.css'
 import PrimeVue from 'primevue/config';
-import { createApp, defineAsyncComponent } from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import ToastService from 'primevue/toastservice';
 import 'primevue/resources/themes/lara-light-green/theme.css'

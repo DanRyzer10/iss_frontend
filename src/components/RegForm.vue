@@ -27,12 +27,13 @@ const industries = ref([
 ])
 
 defineRule('only_letters', value => {
-    const regex = /^[A-Za-z\s]+$/;
+    //poner en mayuscula la primera letra del nombre y apellido
+    const regex = /^[A-Za-zñÑ\s]+$/;
     return regex.test(value) || 'Este campo solo puede contener letras';
 })
 
 defineRule('alphanumeric', value => {
-    const regex = /^[a-zA-Z0-9\s\!¡?¿#$&%\/\-_.:;,@()=+*]+$/;
+    const regex = /^[a-zA-ZñÑ0-9\s\!¡?¿#$&%\/\-_.:;,@()=+*]+$/;
     return regex.test(value) || 'Este campo solo puede contener letras, numeros y caracteres especiales';
 })
 defineRule('required', value => {
@@ -80,7 +81,7 @@ async function postData() {
         const response = await fetch('http://localhost:8000/api/accounts', options)
         const responseData = await response.json()
         message = responseData.message;
-        if (!response.ok) {
+        if (!response.ok || response.status == 400) {
             toast.add({ severity: 'error', summary: 'Error', detail: message, life: 3000 });
         }
         toast.add({ severity: 'success', summary: 'Success', detail: message, life: 3000 });
@@ -101,27 +102,27 @@ async function postData() {
             <strong>no es necesario agregar tarjeta de credito</strong>
         </section>
         <div class="main-container">
-            <Toast />
+            <Toast position="top-center" />
             <h2>Datos de la cuenta</h2>
             <form @submit="onSubmit">
                 <div class="form-items">
                     <div class="input-name">
-                        <label for="company">Nombre del negocio</label>
-                        <InputText autocomplete="company" class="inputtext" id="company" v-model="companyValue"
+                        <label for="businessName">Nombre del negocio</label>
+                        <InputText autocomplete="on" class="inputtext" id="businessName" v-model="companyValue"
                             :class="{ 'p-invalid': companyErr }" aria-describedby="username-help" />
                         <small class="p-error" id="text-error">{{ companyErr || '&nbsp;' }}</small>
-                        <small id="username-help">Enter your username to reset your password.</small>
+                        <small id="username-help">nombre de tu negocio</small>
                     </div>
                     <div class="dropform">
                         <label for="industry">Selecciona tu industria</label>
                         <Dropdown input-id="industry" v-model="industryValue" editable :options="industries" :class="{ 'p-invalid': industryErr }"
-                            placeholder="Select la industria" class="inputtext" />
+                            placeholder="Selecciona una opcion" class="inputtext" />
                         <small class="p-error" id="text-error">{{ industryErr || '&nbsp;' }}</small>
                     </div>
                     <h2>Datos del administrador</h2>
                     <div class="input-name">
                         <label for="name">Nombres y apellidos</label>
-                        <InputText autocomplete="name" class="inputtext" id="name" v-model="fullnameValue" :class="{ 'p-invalid': fullnameErr }"
+                        <InputText autocomplete="family-name" class="inputtext" id="name" v-model="fullnameValue" :class="{ 'p-invalid': fullnameErr }"
                             aria-describedby="username-help" />
                         <small class="p-error" id="text-error">{{ fullnameErr || '&nbsp;' }}</small>
                         <small id="username-help">Nombres y apellidos del administrador</small>
@@ -190,4 +191,5 @@ async function postData() {
     display: flex;
     justify-content: right;
 }
+
 </style>
