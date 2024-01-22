@@ -28,12 +28,12 @@ const industries = ref([
 
 defineRule('only_letters', value => {
     //poner en mayuscula la primera letra del nombre y apellido
-    const regex = /^[A-Za-zñÑ\s]+$/;
+    const regex = /^[A-Za-zñÑ\sáéíóúÁÉÍÓÚ]+$/;
     return regex.test(value) || 'Este campo solo puede contener letras';
 })
 
 defineRule('alphanumeric', value => {
-    const regex = /^[a-zA-ZñÑ0-9\s\!¡?¿#$&%\/\-_.:;,@()=+*]+$/;
+    const regex = /^[a-zA-ZñÑ0-9\s\!¡?¿#$&%\/\-_.:;,@()=+*áéíóúÁÉÍÓÚ]+$/;
     return regex.test(value) || 'Este campo solo puede contener letras, numeros y caracteres especiales';
 })
 defineRule('required', value => {
