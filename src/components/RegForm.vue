@@ -83,8 +83,10 @@ async function postData() {
         message = responseData.message;
         if (!response.ok || response.status == 400) {
             toast.add({ severity: 'error', summary: 'Error', detail: message, life: 3000 });
+        
+        }else{
+            toast.add({ severity: 'success', summary: 'Success', detail: message, life: 3000 });
         }
-        toast.add({ severity: 'success', summary: 'Success', detail: message, life: 3000 });
     } catch (error) {
         toast.add({ severity: 'error', summary: 'Error', detail: "Hubo un error de conexión con la API. Por favor, inténtalo de nuevo más tarde.", life: 3000 });
         console.log("error: ", error)
